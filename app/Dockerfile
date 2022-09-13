@@ -11,4 +11,8 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
+ENTRYPOINT ["dockerize", "-wait", "tcp://mysql:3306", "-timeout", "60s"]
+
 EXPOSE 3000
+
+CMD ["node", "index.js"]

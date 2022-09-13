@@ -5,8 +5,6 @@ services:
     build: ./app
     ports:
       - '3000:3000'
-    entrypoint: dockerize -wait tcp://mysql:3306 -timeout 60s
-    command: node index.js
     networks:
       - network
     volumes:
